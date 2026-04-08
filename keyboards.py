@@ -5,15 +5,15 @@ def hru_keyboard():
 	keyboard = types.InlineKeyboardMarkup()
 	keyboard.add(
 		types	.InlineKeyboardButton(
-			text = 'Камень',
+			text = '✊ Камень',
 			callback_data = 'ersh'
         ),
 		types.InlineKeyboardButton(
-			text = 'Ножницы',
+			text = '✂️ Ножницы',
 			callback_data='no'
         ),
 		types.InlineKeyboardButton(
-			text = 'Бумага',
+			text = '📄 Бумага',
 			callback_data='by'
         )
     )
@@ -31,6 +31,12 @@ def hru_keyboard():
 
 def menu_keyboard():
 	keyboard = types.InlineKeyboardMarkup()
+	keyboard.add(
+		types.InlineKeyboardButton(
+			text = '🎮 Новая игра',
+			callback_data='new_game'
+		)
+	)
 	keyboard.add(
 		types.InlineKeyboardButton(
 			text = '📊 Статистика',

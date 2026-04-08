@@ -50,6 +50,11 @@ def handle_callback(callback):
 			bot.send_message(chat_id, stats_text, reply_markup=keyboards.menu_keyboard())
 		return
 
+	# Обработка команды новой игры
+	if callback.data == 'new_game':
+		bot.send_message(chat_id, text='Давай начнем, выбери камень, ножницы или бумагу', reply_markup=keyboards.hru_keyboard())
+		return
+
 	# Обработка команды обнуления статистики
 	if callback.data == 'reset':
 		if chat_id in user_stats:
@@ -74,7 +79,7 @@ def handle_callback(callback):
 	update_stats(chat_id, result_type)
 	
 	message_text = f"Вы выбрали: {user_choice}\nБот выбрал: {bot_choice}\n{result_text}"
-	bot.send_message(chat_id, message_text, reply_markup=keyboards.hru_keyboard())
+	bot.send_message(chat_id, message_text, reply_markup=keyboards.menu_keyboard())
 		
 def determine_winner(user_choice, bot_choice):
 	"""Определяет победителя и возвращает (текст результата, тип результата)"""
